@@ -7,8 +7,10 @@ object ConnectedComponents {
     // Create a SparkSession
     val spark = SparkSession.builder.appName("ConnectedComponents").getOrCreate()
 
-    // Load input data from a file named "web-Google.txt.gz"
-    val inputFile = spark.sparkContext.textFile("C:/Users/alexi/Downloads/web-Google.txt.gz")
+    // The input file is supposed to be a random data file
+    // In our case, the rest of our code is suited for the the web-google.txt file,
+    // A standard graph dataset that we used
+    val inputFile = spark.sparkContext.textFile("data_file")
 
     // Filter out any lines that start with a '#' character
     val cleanInput = inputFile.filter(line => line(0).compare('#') > 0)
